@@ -15,11 +15,26 @@ type EventItem = {
 };
 
 async function getEvents(): Promise<EventItem[]> {
-  const res = await fetch("http://localhost:3001/api/events", {
-    cache: "no-store",
-  });
-  const data = await res.json();
-  return data.events as EventItem[];
+  try {
+    const baseUrl =
+      process.env.NEXT_PUBLIC_BASE_URL ||
+      "http://localhost:3001"; // fallback for local dev
+
+    const res = await fetch(`${baseUrl}/api/events`, {
+      cache: "no-store",
+    });
+
+    if (!res.ok) {
+      console.error("getEvents: failed with status", res.status);
+      return [];
+    }
+
+    const data = await res.json();
+    return (data.events as EventItem[]) || [];
+  } catch (error) {
+    console.error("getEvents error:", error);
+    return [];
+  }
 }
 
 export default async function EventsPage() {
@@ -83,8 +98,9 @@ export default async function EventsPage() {
                   {event.description}
                 </p>
 
-    <Link href={`/events/${event._id}`}>View Details & Book</Link>
-
+                <Link href={`/events/${event._id}`}>
+                  View Details &amp; Book
+                </Link>
               </div>
             </div>
           </div>

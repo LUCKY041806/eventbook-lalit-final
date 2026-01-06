@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ message: "User created successfully" });
   } catch (error) {
-    console.error("Register error:", error);
+    console.error("POST /api/register error:", error);
     return NextResponse.json(
       { error: "Server error" },
       { status: 500 }
