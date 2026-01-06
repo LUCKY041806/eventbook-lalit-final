@@ -4,13 +4,14 @@ import { getDb } from "@/lib/mongodb";
 import { Event } from "@/lib/models";
 import { ObjectId } from "mongodb";
 
+// GET /api/events -> list all events
 export async function GET() {
   try {
     const db = await getDb();
 
     const events = await db
       .collection<Event>("events")
-      .find({}) // no filter for now
+      .find({})
       .toArray();
 
     return NextResponse.json({ success: true, events });
@@ -23,8 +24,7 @@ export async function GET() {
   }
 }
 
-
-// POST /api/events -> create a sample event (later restrict to organizer)
+// POST /api/events -> create event
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -44,14 +44,14 @@ export async function POST(req: NextRequest) {
       status: "published",
       createdAt: new Date(),
       updatedAt: new Date(),
-      performerName: ""
+      performerName: "",
     };
 
     const result = await db.collection<Event>("events").insertOne(event);
 
     return NextResponse.json({ success: true, id: result.insertedId });
   } catch (error) {
-    console.error(error);
+    console.error("POST /api/events error:", error);
     return NextResponse.json(
       { success: false, message: "Failed to create event" },
       { status: 500 }
