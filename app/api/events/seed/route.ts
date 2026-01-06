@@ -113,7 +113,7 @@ export async function POST(_req: NextRequest) {
         startDateTime: new Date("2026-02-10T19:00:00+05:30"),
         endDateTime: new Date("2026-02-10T22:30:00+05:30"),
         ticketTypes: [
-          { name: "General", price: 1500, totalQuantity: 3000, soldQuantity: 0 },
+                  { name: "General", price: 1500, totalQuantity: 3000, soldQuantity: 0 },
           {
             name: "Premium Seating",
             price: 2500,
@@ -189,6 +189,7 @@ export async function POST(_req: NextRequest) {
     return NextResponse.json({
       success: true,
       insertedCount: result.insertedCount,
+      organizerId: organizerId.toString(), // For reference
     });
   } catch (error) {
     console.error("POST /api/events/seed error:", error);
