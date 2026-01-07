@@ -24,10 +24,127 @@ type EventItem = {
   status?: string;
 };
 
-// 🔥 MOCK DATA - OUTSIDE COMPONENT
+// 🔥 COMPLETE MOCK DATA - FIXED (10 realistic events for your EventBook)
 const ALL_EVENTS: EventItem[] = [
-  // ... keep ALL_EVENTS array EXACTLY as you have it today,
-  // only fix image paths here if you already did elsewhere
+  {
+    _id: '507f1f77bcf86cd799439011',
+    title: 'AP Dhillon Live Concert',
+    description: 'High-energy Punjabi pop concert featuring AP Dhillon with massive LED visuals and bass-heavy sound.',
+    category: 'Concert',
+    tags: ['Punjabi', 'Pop', 'Live', 'EDM'],
+    performerName: 'AP Dhillon',
+    performerGenre: 'Punjabi Pop',
+    performerImageUrl: 'https://images.unsplash.com/photo-1578631610670-322f5b4e971f?w=200&h=200&fit=crop',
+    bannerUrl: '/images/banners/ap-dhillon.jpg',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400',
+      'https://images.unsplash.com/photo-1517457373958-b7bdd4587208?w=400'
+    ],
+    venue: { name: 'DY Patil Stadium', city: 'Navi Mumbai', state: 'Maharashtra' },
+    startDateTime: '2026-02-15T19:00:00+05:30',
+    ticketTypes: [
+      { name: 'General', price: 999, currency: 'INR' },
+      { name: 'VIP', price: 1999, currency: 'INR' },
+      { name: 'VVIP', price: 4999, currency: 'INR' }
+    ],
+    isFeatured: true,
+    status: 'published'
+  },
+  {
+    _id: '507f1f77bcf86cd799439012',
+    title: 'Arijit Singh Magical Night',
+    description: 'Soulful melodies and romantic hits in an intimate setting.',
+    category: 'Concert',
+    tags: ['Bollywood', 'Romantic', 'Live'],
+    performerName: 'Arijit Singh',
+    performerGenre: 'Bollywood Playback',
+    bannerUrl: '/images/banners/arijit-singh.jpg',
+    venue: { name: 'Phoenix Marketcity', city: 'Mumbai', state: 'Maharashtra' },
+    startDateTime: '2026-03-10T20:00:00+05:30',
+    ticketTypes: [
+      { name: 'Silver', price: 1500, currency: 'INR' },
+      { name: 'Gold', price: 2500, currency: 'INR' }
+    ]
+  },
+  {
+    _id: '507f1f77bcf86cd799439013',
+    title: 'TechFest 2026 Hackathon',
+    description: 'India\'s largest college hackathon with cash prizes and startup mentorship.',
+    category: 'Workshop',
+    tags: ['Tech', 'Hackathon', 'Coding', 'Startup'],
+    performerName: 'VIT Campus Team',
+    bannerUrl: '/images/banners/techfest.jpg',
+    venue: { name: 'VIT Convention Centre', city: 'Vellore', state: 'Tamil Nadu' },
+    startDateTime: '2026-02-20T09:00:00+05:30',
+    ticketTypes: [{ name: 'Team Pass', price: 500, currency: 'INR' }]
+  },
+  {
+    _id: '507f1f77bcf86cd799439014',
+    title: 'Badminton Championship',
+    category: 'Sports',
+    tags: ['Sports', 'Badminton', 'Youth'],
+    performerName: 'Thane District Sports',
+    bannerUrl: '/images/banners/badminton.jpg',
+    venue: { name: 'Thane Municipal Hall', city: 'Thane', state: 'Maharashtra' },
+    startDateTime: '2026-02-25T15:00:00+05:30',
+    ticketTypes: [
+      { name: 'General', price: 200, currency: 'INR' },
+      { name: 'Premium', price: 500, currency: 'INR' }
+    ]
+  },
+  {
+    _id: '507f1f77bcf86cd799439015',
+    title: 'Standup Comedy Night',
+    description: 'Laugh out loud with top comedians from Mumbai.',
+    category: 'Comedy',
+    tags: ['Comedy', 'Standup', 'Entertainment'],
+    performerName: 'The Barkha Effect',
+    bannerUrl: '/images/banners/comedy-night.jpg',
+    venue: { city: 'Mumbai', state: 'Maharashtra' }, // Missing name test
+    startDateTime: '2026-02-28T20:30:00+05:30',
+    ticketTypes: [{ name: 'General', price: 299, currency: 'INR' }]
+  },
+  // Add 5 more similar events...
+  {
+    _id: '507f1f77bcf86cd799439016',
+    title: 'Web Dev Workshop',
+    category: 'Workshop',
+    performerName: 'Your CS Professor',
+    venue: { name: 'College Auditorium', city: 'Thane', state: 'Maharashtra' },
+    startDateTime: '2026-03-01T10:00:00+05:30'
+  },
+  {
+    _id: '507f1f77bcf86cd799439017',
+    title: 'DJ Night',
+    category: 'Party',
+    performerName: 'DJ Zaeden',
+    venue: { city: 'Pune' },
+    startDateTime: '2026-03-05T22:00:00+05:30'
+  },
+  {
+    _id: '507f1f77bcf86cd799439018',
+    title: 'Startup Pitch Fest',
+    category: 'Business',
+    performerName: 'Shark Tank India',
+    venue: { name: 'Startup Hub', city: 'Bengaluru' },
+    startDateTime: '2026-03-08T14:00:00+05:30'
+  },
+  {
+    _id: '507f1f77bcf86cd799439019',
+    title: 'Yoga Retreat',
+    category: 'Wellness',
+    performerName: 'Swami Ji',
+    venue: { city: 'Goa' },
+    startDateTime: '2026-03-12T06:00:00+05:30'
+  },
+  {
+    _id: '507f1f77bcf86cd799439020',
+    title: 'Gaming Tournament',
+    category: 'Esports',
+    performerName: 'BGMI Pro League',
+    venue: { name: 'Gaming Arena', city: 'Delhi' },
+    startDateTime: '2026-03-15T12:00:00+05:30'
+  }
 ];
 
 export default function EventDetailsPage() {
@@ -98,7 +215,7 @@ export default function EventDetailsPage() {
 
   return (
     <div className="min-h-screen bg-slate-950">
-      {/* Back Button */}
+           {/* Back Button */}
       <div className="max-w-6xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
         <Link
           href="/"
@@ -166,7 +283,7 @@ export default function EventDetailsPage() {
             </div>
           )}
 
-          {/* Event Info Cards */}
+          {/* Event Info Cards - ✅ SAFE venue.name & venue.state */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="bg-slate-900/50 border border-slate-800 rounded-lg p-4">
               <p className="text-slate-400 text-xs uppercase font-semibold mb-2">
@@ -184,10 +301,10 @@ export default function EventDetailsPage() {
                 Venue
               </p>
               <p className="text-white font-semibold text-sm sm:text-base">
-                {event.venue.name || 'Venue TBA'}
+                {event.venue?.name || 'Venue TBA'}
               </p>
               <p className="text-indigo-400 text-xs sm:text-sm">
-                {event.venue.city}, {event.venue.state}
+                {event.venue?.city || ''}, {event.venue?.state || ''}
               </p>
             </div>
           </div>
