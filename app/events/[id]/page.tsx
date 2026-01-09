@@ -28,20 +28,20 @@ type EventItem = {
 const ALL_EVENTS: EventItem[] = [
   {
     _id: '507f1f77bcf86cd799439011',
-    title: 'AP Dhillon Live Concert',
+    title: 'AP Dhillon – Night Drive Tour, Mumbai',
     description: 'High-energy Punjabi pop concert featuring AP Dhillon with massive LED visuals and bass-heavy sound.',
     category: 'Concert',
     tags: ['Punjabi', 'Pop', 'Live', 'EDM'],
     performerName: 'AP Dhillon',
-    performerGenre: 'Punjabi Pop',
-    performerImageUrl: 'https://images.unsplash.com/photo-1578631610670-322f5b4e971f?w=200&h=200&fit=crop',
+    performerGenre: 'Punjabi Hip-Hop',
+    performerImageUrl: '/images/artists/ap-dhillon.jpg',
     bannerUrl: '/images/banners/ap-dhillon.jpg',
     galleryImages: [
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400',
-      'https://images.unsplash.com/photo-1517457373958-b7bdd4587208?w=400'
+      '/images/gallery/ap-dhillon-1.jpg',
+      '/images/gallery/ap-dhillon-2.jpg'
     ],
-    venue: { name: 'DY Patil Stadium', city: 'Navi Mumbai', state: 'Maharashtra' },
-    startDateTime: '2026-02-15T19:00:00+05:30',
+    venue: { name: 'DY Patil Stadium', city: 'Mumbai', state: 'Maharashtra' },
+    startDateTime: '2025-12-30T19:00:00+05:30',
     ticketTypes: [
       { name: 'General', price: 999, currency: 'INR' },
       { name: 'VIP', price: 1999, currency: 'INR' },
@@ -52,100 +52,155 @@ const ALL_EVENTS: EventItem[] = [
   },
   {
     _id: '507f1f77bcf86cd799439012',
-    title: 'Arijit Singh Magical Night',
+    title: 'Arijit Singh – Soulful Evening, Pune',
     description: 'Soulful melodies and romantic hits in an intimate setting.',
     category: 'Concert',
     tags: ['Bollywood', 'Romantic', 'Live'],
     performerName: 'Arijit Singh',
-    performerGenre: 'Bollywood Playback',
-    bannerUrl: '/images/banners/arijit-singh.jpg',
-    venue: { name: 'Phoenix Marketcity', city: 'Mumbai', state: 'Maharashtra' },
-    startDateTime: '2026-03-10T20:00:00+05:30',
+    performerGenre: 'Bollywood / Romantic',
+    performerImageUrl: '/images/artists/arijit-singh.jpg',
+    bannerUrl: '/images/banners/arijit-pune.jpg',
+    venue: { name: 'Balewadi Stadium', city: 'Pune', state: 'Maharashtra' },
+    startDateTime: '2026-01-05T18:30:00+05:30',
     ticketTypes: [
       { name: 'Silver', price: 1500, currency: 'INR' },
       { name: 'Gold', price: 2500, currency: 'INR' }
-    ]
+    ],
+    isFeatured: true,
+    status: 'published'
   },
   {
     _id: '507f1f77bcf86cd799439013',
-    title: 'TechFest 2026 Hackathon',
-    description: 'India\'s largest college hackathon with cash prizes and startup mentorship.',
-    category: 'Workshop',
-    tags: ['Tech', 'Hackathon', 'Coding', 'Startup'],
-    performerName: 'VIT Campus Team',
-    bannerUrl: '/images/banners/techfest.jpg',
-    venue: { name: 'VIT Convention Centre', city: 'Vellore', state: 'Tamil Nadu' },
-    startDateTime: '2026-02-20T09:00:00+05:30',
-    ticketTypes: [{ name: 'Team Pass', price: 500, currency: 'INR' }]
+    title: 'Coldplay – Music of the Spheres Tour, Mumbai',
+    description: 'Coldplay brings breathtaking visuals, LED wristbands, and magic.',
+    category: 'Concert',
+    tags: ['Rock', 'Pop', 'Live'],
+    performerName: 'Coldplay',
+    performerGenre: 'Alternative / Pop Rock',
+    performerImageUrl: '/images/artists/coldplay.jpg',
+    bannerUrl: '/images/banners/coldplay-mumbai.jpg',
+    venue: { name: 'Wankhede Stadium', city: 'Mumbai', state: 'Maharashtra' },
+    startDateTime: '2026-01-08T20:00:00+05:30',
+    ticketTypes: [
+      { name: 'Standard', price: 2000, currency: 'INR' },
+      { name: 'Premium', price: 4000, currency: 'INR' }
+    ],
+    isFeatured: false,
+    status: 'published'
   },
   {
     _id: '507f1f77bcf86cd799439014',
-    title: 'Badminton Championship',
-    category: 'Sports',
-    tags: ['Sports', 'Badminton', 'Youth'],
-    performerName: 'Thane District Sports',
-    bannerUrl: '/images/banners/badminton.jpg',
-    venue: { name: 'Thane Municipal Hall', city: 'Thane', state: 'Maharashtra' },
-    startDateTime: '2026-02-25T15:00:00+05:30',
+    title: 'Sunset EDM Festival – Goa Beach Edition',
+    description: 'Two days of beachside EDM with international DJs.',
+    category: 'Festival',
+    tags: ['EDM', 'Beach', 'Party'],
+    performerName: 'Various DJs',
+    performerGenre: 'EDM',
+    performerImageUrl: '/images/artists/edm-dj.jpg',
+    bannerUrl: '/images/banners/sunset-edm-goa.jpg',
+    venue: { city: 'Goa' },
+    startDateTime: '2026-01-18T16:00:00+05:30',
     ticketTypes: [
-      { name: 'General', price: 200, currency: 'INR' },
-      { name: 'Premium', price: 500, currency: 'INR' }
-    ]
+      { name: 'Day Pass', price: 1000, currency: 'INR' },
+      { name: 'Full Pass', price: 1800, currency: 'INR' }
+    ],
+    isFeatured: false,
+    status: 'published'
   },
   {
     _id: '507f1f77bcf86cd799439015',
-    title: 'Standup Comedy Night',
-    description: 'Laugh out loud with top comedians from Mumbai.',
-    category: 'Comedy',
-    tags: ['Comedy', 'Standup', 'Entertainment'],
-    performerName: 'The Barkha Effect',
-    bannerUrl: '/images/banners/comedy-night.jpg',
-    venue: { city: 'Mumbai', state: 'Maharashtra' }, // Missing name test
-    startDateTime: '2026-02-28T20:30:00+05:30',
-    ticketTypes: [{ name: 'General', price: 299, currency: 'INR' }]
+    title: 'Justin Bieber – Justice World Tour, Mumbai',
+    description: 'Global pop icon Justin Bieber returns to India with a spectacular performance.',
+    category: 'Concert',
+    tags: ['Pop', 'Live'],
+    performerName: 'Justin Bieber',
+    performerGenre: 'Pop',
+    performerImageUrl: '/images/artists/justin-bieber.jpg',
+    bannerUrl: '/images/banners/justin-bieber-mumbai.jpg',
+    venue: { city: 'Mumbai' },
+    startDateTime: '2026-01-12T19:00:00+05:30',
+    ticketTypes: [
+      { name: 'General', price: 1500, currency: 'INR' },
+      { name: 'VIP', price: 3000, currency: 'INR' }
+    ],
+    isFeatured: false,
+    status: 'published'
   },
-  // Add 5 more similar events...
   {
     _id: '507f1f77bcf86cd799439016',
-    title: 'Web Dev Workshop',
-    category: 'Workshop',
-    performerName: 'Your CS Professor',
-    venue: { name: 'College Auditorium', city: 'Thane', state: 'Maharashtra' },
-    startDateTime: '2026-03-01T10:00:00+05:30'
+    title: 'Indie Night Live – Mumbai',
+    description: 'A night dedicated to indie music featuring emerging Indian artists.',
+    category: 'Music Festival',
+    tags: ['Indie', 'Live'],
+    performerName: 'Independent Artists',
+    performerGenre: 'Indie / Rock',
+    performerImageUrl: '/images/artists/indie-night.jpg',
+    bannerUrl: '/images/banners/indie-night-mumbai.jpg',
+    venue: { city: 'Mumbai' },
+    startDateTime: '2026-01-10T21:00:00+05:30',
+    ticketTypes: [
+      { name: 'Entry', price: 500, currency: 'INR' }
+    ],
+    isFeatured: false,
+    status: 'published'
   },
   {
     _id: '507f1f77bcf86cd799439017',
-    title: 'DJ Night',
-    category: 'Party',
-    performerName: 'DJ Zaeden',
-    venue: { city: 'Pune' },
-    startDateTime: '2026-03-05T22:00:00+05:30'
+    title: 'Ed Sheeran – +−=÷× India Tour, Delhi',
+    description: 'Ed Sheeran brings his iconic loop pedal magic and heartfelt songs live.',
+    category: 'Concert',
+    tags: ['Pop', 'Live'],
+    performerName: 'Ed Sheeran',
+    performerGenre: 'Pop',
+    performerImageUrl: '/images/artists/ed-sheeran.jpg',
+    bannerUrl: '/images/banners/ed-sheeran-india.jpg',
+    venue: { city: 'Delhi' },
+    startDateTime: '2025-12-31T19:00:00+05:30',
+    ticketTypes: [
+      { name: 'Standard', price: 2000, currency: 'INR' },
+      { name: 'Premium', price: 4000, currency: 'INR' }
+    ],
+    isFeatured: true,
+    status: 'published'
   },
   {
     _id: '507f1f77bcf86cd799439018',
-    title: 'Startup Pitch Fest',
-    category: 'Business',
-    performerName: 'Shark Tank India',
-    venue: { name: 'Startup Hub', city: 'Bengaluru' },
-    startDateTime: '2026-03-08T14:00:00+05:30'
+    title: 'Techno Night – Underground Edition, Goa',
+    description: 'A deep, dark techno experience featuring underground DJs.',
+    category: 'EDM',
+    tags: ['EDM', 'Live', 'Underground'],
+    performerName: 'Techno DJs',
+    performerGenre: 'EDM',
+    performerImageUrl: '/images/artists/techno-dj.jpg',
+    bannerUrl: '/images/banners/techno-night-goa.jpg',
+    venue: { city: 'Goa' },
+    startDateTime: '2026-01-20T23:00:00+05:30',
+    ticketTypes: [
+      { name: 'Entry', price: 700, currency: 'INR' }
+    ],
+    isFeatured: false,
+    status: 'published'
   },
   {
     _id: '507f1f77bcf86cd799439019',
-    title: 'Yoga Retreat',
-    category: 'Wellness',
-    performerName: 'Swami Ji',
-    venue: { city: 'Goa' },
-    startDateTime: '2026-03-12T06:00:00+05:30'
-  },
-  {
-    _id: '507f1f77bcf86cd799439020',
-    title: 'Gaming Tournament',
-    category: 'Esports',
-    performerName: 'BGMI Pro League',
-    venue: { name: 'Gaming Arena', city: 'Delhi' },
-    startDateTime: '2026-03-15T12:00:00+05:30'
+    title: 'Yo Yo Honey Singh – Mumbai Show',
+    description: 'Swipe for Mumbai venue announcement.',
+    category: 'Concert',
+    tags: ['Rap', 'Hip-Hop', 'Live'],
+    performerName: 'Yo Yo Honey Singh',
+    performerGenre: 'Rap / Hip-Hop',
+    performerImageUrl: '/images/artists/honey-singh.jpg',
+    bannerUrl: '/images/banners/honey-singh-mumbai.jpg',
+    venue: { city: 'Pune' },
+    startDateTime: '2026-01-04T20:00:00+05:30',
+    ticketTypes: [
+      { name: 'Standard', price: 1200, currency: 'INR' }
+    ],
+    isFeatured: true,
+    status: 'published'
   }
 ];
+
 
 export default function EventDetailsPage() {
   const params = useParams();

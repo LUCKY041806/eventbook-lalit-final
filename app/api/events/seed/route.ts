@@ -1,24 +1,22 @@
 // app/api/events/seed/route.ts
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { getDb } from "@/lib/mongodb";
 import { Event } from "@/lib/models";
 import { ObjectId } from "mongodb";
 
-export async function POST(_req: NextRequest) {
+export async function POST() {
   try {
     const db = await getDb();
     const eventsCol = db.collection<Event>("events");
 
-    // Simple dummy organizer id for all seeded events
-    const organizerId = new ObjectId("64a7f4a3c6dd3a6e3c4a1234");
     const now = new Date();
 
     const events: Event[] = [
       {
-        organizerId,
+        organizerId: new ObjectId("64a7f4a3c6dd3a6e3c4a1234"),
         title: "AP Dhillon: Night Drive Tour – Dombivli",
         description:
-          "Experience AP Dhillon live with his chart‑topping Punjabi hits, immersive lighting, and a high‑energy crowd. Special visual set designed for the Night Drive Tour.",
+          "Experience AP Dhillon live with his chart-topping Punjabi hits, immersive lighting, and a high-energy crowd. Special visual set designed for the Night Drive Tour.",
         category: "Concert",
         tags: ["punjabi", "pop", "live", "concert"],
         performerName: "AP Dhillon",
@@ -39,12 +37,7 @@ export async function POST(_req: NextRequest) {
         ticketTypes: [
           { name: "Regular", price: 799, totalQuantity: 1500, soldQuantity: 0 },
           { name: "VIP", price: 1999, totalQuantity: 200, soldQuantity: 0 },
-          {
-            name: "Fan Pit",
-            price: 2999,
-            totalQuantity: 100,
-            soldQuantity: 0,
-          },
+          { name: "Fan Pit", price: 2999, totalQuantity: 100, soldQuantity: 0 },
         ],
         isFeatured: true,
         isTrending: true,
@@ -52,15 +45,16 @@ export async function POST(_req: NextRequest) {
         createdAt: now,
         updatedAt: now,
       },
+
       {
-        organizerId,
+        organizerId: new ObjectId("64a7f4a3c6dd3a6e3c4a1234"),
         title: "Yo Yo Honey Singh – Mumbai Blockbuster Night",
         description:
-          "A full‑power night with Yo Yo Honey Singh performing his biggest Bollywood and independent hits. Massive LED wall and bass‑heavy sound system.",
+          "A full-power night with Yo Yo Honey Singh performing his biggest Bollywood and independent hits.",
         category: "Concert",
         tags: ["bollywood", "rap", "hip hop"],
         performerName: "Yo Yo Honey Singh",
-        performerGenre: "Rap / Hip‑Hop",
+        performerGenre: "Rap / Hip-Hop",
         performerImageUrl: "/images/artists/honey-singh.jpg",
         bannerUrl: "/images/banners/honey-singh-mumbai.jpg",
         galleryImages: ["/images/banners/honey-singh-mumbai.jpg"],
@@ -77,12 +71,7 @@ export async function POST(_req: NextRequest) {
         ticketTypes: [
           { name: "Silver", price: 999, totalQuantity: 2000, soldQuantity: 0 },
           { name: "Gold", price: 1799, totalQuantity: 1000, soldQuantity: 0 },
-          {
-            name: "VVIP Table",
-            price: 9999,
-            totalQuantity: 50,
-            soldQuantity: 0,
-          },
+          { name: "VVIP Table", price: 9999, totalQuantity: 50, soldQuantity: 0 },
         ],
         isFeatured: true,
         isTrending: true,
@@ -90,11 +79,12 @@ export async function POST(_req: NextRequest) {
         createdAt: now,
         updatedAt: now,
       },
+
       {
-        organizerId,
+        organizerId: new ObjectId("64a7f4a3c6dd3a6e3c4a1234"),
         title: "Arijit Singh – Soulful Evenings, Pune",
         description:
-          "Sit back and sing along as Arijit Singh performs his most loved romantic and soulful tracks with a full live band and strings section.",
+          "Sit back and sing along as Arijit Singh performs his most loved romantic and soulful tracks.",
         category: "Concert",
         tags: ["romantic", "bollywood", "live"],
         performerName: "Arijit Singh",
@@ -110,10 +100,10 @@ export async function POST(_req: NextRequest) {
           mapUrl:
             "https://www.google.com/maps/search/?api=1&query=Balewadi+Stadium+Pune",
         },
-        startDateTime: new Date("2026-02-10T19:00:00+05:30"),
-        endDateTime: new Date("2026-02-10T22:30:00+05:30"),
+        startDateTime: new Date("2025-12-26T19:30:00+05:30"),
+        endDateTime: new Date("2025-12-26T22:30:00+05:30"),
         ticketTypes: [
-                  { name: "General", price: 1500, totalQuantity: 3000, soldQuantity: 0 },
+          { name: "General", price: 1500, totalQuantity: 3000, soldQuantity: 0 },
           {
             name: "Premium Seating",
             price: 2500,
@@ -133,11 +123,12 @@ export async function POST(_req: NextRequest) {
         createdAt: now,
         updatedAt: now,
       },
+
       {
-        organizerId,
+        organizerId: new ObjectId("64a7f4a3c6dd3a6e3c4a1234"),
         title: "Sunset EDM Festival – Goa Beach Edition",
         description:
-          "A two‑day EDM festival featuring top Indian and international DJs, beach stages, and after‑parties that go on till sunrise.",
+          "A two-day EDM festival featuring top DJs, beach stages, and after-parties.",
         category: "Festival",
         tags: ["EDM", "festival", "goa", "beach"],
         performerName: "Multiple Artists",
@@ -169,7 +160,7 @@ export async function POST(_req: NextRequest) {
             soldQuantity: 0,
           },
           {
-            name: "2‑Day Festival Pass",
+            name: "2-Day Festival Pass",
             price: 4200,
             totalQuantity: 4000,
             soldQuantity: 0,
@@ -181,6 +172,7 @@ export async function POST(_req: NextRequest) {
         createdAt: now,
         updatedAt: now,
       },
+      // ⬇️ YOU CAN CONTINUE ADDING REMAINING EVENTS EXACTLY SAME WAY
     ];
 
     await eventsCol.deleteMany({});
@@ -189,14 +181,12 @@ export async function POST(_req: NextRequest) {
     return NextResponse.json({
       success: true,
       insertedCount: result.insertedCount,
-      organizerId: organizerId.toString(), // For reference
     });
   } catch (error) {
-    console.error("POST /api/events/seed error:", error);
-    // Handle error gracefully so build doesn't crash
+    console.error("Seed error:", error);
     return NextResponse.json(
       { success: false, message: "Seed failed" },
-      { status: 200 }
+      { status: 500 }
     );
   }
 }

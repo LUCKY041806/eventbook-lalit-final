@@ -144,7 +144,7 @@ async function getEvents(): Promise<EventItem[]> {
       title: "Indie Night Festival",
       performerName: "Indie Artists",
       category: "Festival",
-      bannerUrl: "/images/banners/indie-night.jpg",
+      bannerUrl: "/images/banners/indie-night-mumbai.jpg",
       performerImageUrl: "/images/artists/indie-night.jpg",
       venue: { city: "Aurangabad", state: "Maharashtra" },
       startDateTime: "2026-01-22T19:30:00Z",
@@ -155,7 +155,7 @@ async function getEvents(): Promise<EventItem[]> {
       title: "Justin Bieber EDM Show",
       performerName: "Justin Bieber",
       category: "EDM",
-      bannerUrl: "/images/banners/justin-edm.jpg",
+      bannerUrl: "/images/banners/justin-bieber-mumbai.jpg",
       performerImageUrl: "/images/artists/justin-bieber.jpg",
       venue: { city: "Kolhapur", state: "Maharashtra" },
       startDateTime: "2026-01-25T21:00:00Z",
@@ -166,7 +166,7 @@ async function getEvents(): Promise<EventItem[]> {
       title: "EDM DJ Festival",
       performerName: "EDM DJs",
       category: "Festival",
-      bannerUrl: "/images/banners/edm-dj.jpg",
+      bannerUrl: "/images/banners/sunset-edm-goa.jpg",
       performerImageUrl: "/images/artists/edm-dj.jpg",
       venue: { city: "Thane", state: "Maharashtra" },
       startDateTime: "2026-01-28T20:00:00Z",
@@ -177,7 +177,7 @@ async function getEvents(): Promise<EventItem[]> {
       title: "AP Dhillon Live",
       performerName: "AP Dhillon",
       category: "Concert",
-      bannerUrl: "/images/banners/ap-dhillon.jpg",
+      bannerUrl: "/images/banners/ap-dhillon-night-drive.jpg",
       performerImageUrl: "/images/artists/ap-dhillon.jpg",
       venue: { city: "Nashik", state: "Maharashtra" },
       startDateTime: "2026-02-01T20:00:00Z",
@@ -188,7 +188,7 @@ async function getEvents(): Promise<EventItem[]> {
       title: "Coldplay Live",
       performerName: "Coldplay",
       category: "Concert",
-      bannerUrl: "/images/banners/coldplay.jpg",
+      bannerUrl: "/images/banners/coldplay-mumbai.jpg",
       performerImageUrl: "/images/artists/coldplay.jpg",
       venue: { city: "Pune", state: "Maharashtra" },
       startDateTime: "2026-02-05T19:00:00Z",
@@ -210,7 +210,7 @@ async function getEvents(): Promise<EventItem[]> {
       title: "Techno DJ Night",
       performerName: "Techno DJ",
       category: "EDM",
-      bannerUrl: "/images/banners/techno-dj.jpg",
+      bannerUrl: "/images/banners/techno-night-goa.jpg",
       performerImageUrl: "/images/artists/techno-dj.jpg",
       venue: { city: "Mumbai", state: "Maharashtra" },
       startDateTime: "2026-02-15T23:00:00Z",
@@ -221,7 +221,7 @@ async function getEvents(): Promise<EventItem[]> {
       title: "Indie Night Goa",
       performerName: "Indie Bands",
       category: "Concert",
-      bannerUrl: "/images/banners/indie-night.jpg",
+      bannerUrl: "/images/banners/indie-night-mumbai.jpg",
       performerImageUrl: "/images/artists/indie-night.jpg",
       venue: { city: "Goa", state: "Goa" },
       startDateTime: "2026-02-20T20:30:00Z",
@@ -330,7 +330,7 @@ export default async function HomePage() {
         </h3>
         {regular.length === 0 ? (
           <p className="text-sm text-slate-500">
-            No events yet. Create one from the organizer panel.
+            No events yet. Create                                                                                  one from the organizer panel.
           </p>
         ) : (
           <div className="overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 scrollbar-hide">
